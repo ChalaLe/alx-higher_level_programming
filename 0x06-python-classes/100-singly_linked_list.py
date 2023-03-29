@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Define class for linked list"""
 
 
 class Node:
+    """Reprsent node of linked list"""
 
     def __init__(self, data, next_node=None):
 
@@ -20,7 +22,7 @@ class Node:
 
     @property
     def next_node(self):
-        """Get/set the next_node of the Node."""
+        """Set the next_node of the Node."""
         return (self.__next_node)
 
     @next_node.setter
@@ -31,11 +33,14 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Represent a linked list"""
 
     def __init__(self):
+        """initialization of linked list"""
         self.__head = None
 
     def sorted_insert(self, value):
+        """Insert new node"""
         new = Node(value)
         if self.__head is None:
             new.next_node = None
@@ -52,6 +57,7 @@ class SinglyLinkedList:
             tmp.next_node = new
 
     def __str__(self):
+        """Define print() representation of linked list"""
         values = []
         tmp = self.__head
         while tmp is not None:
