@@ -10,7 +10,7 @@ class Rectangle:
     """a class Rectangle that defines a rectangle by
     instance width and height attribute"""
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width, height):
         """It initialize the width and height of rectangle"""
         self.width = width
         self.height = height
