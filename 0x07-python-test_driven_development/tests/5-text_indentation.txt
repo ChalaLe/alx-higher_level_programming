@@ -1,0 +1,113 @@
+# 5-text_indentation.txt
+
+Using ``text_indentation``
+-----------------------
+
+This module defines a text-indentation function ``text_indentation(text)``.
+
+Usage
+-----
+
+First import ``text_indentation``
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+ >>> text_indentation("Hello?")
+    Hello?
+    <BLANKLINE>
+
+No spaces are printed at the beginning of a line.
+
+    >>> text_indentation("   Hi there.")
+    Hi there.
+    <BLANKLINE>
+    >>> text_indentation("          ")
+
+Similarly, no spaces are printed at the end of each printed line.
+
+    >>> text_indentation("Hello.   ")
+    Hello.
+    <BLANKLINE>
+
+    >>> text_indentation("    Woah now.    This is messy.   ")
+    Woah now.
+    <BLANKLINE>
+    This is messy.
+    <BLANKLINE>
+
+New lines are only printed for the characters ``.``, ``?``, and ``:`` -
+
+
+text not ending with one of these characters is not ended with a new line.
+
+    >>> tex
+t_indentation("No ending period, what bad grammar")
+    No ending period, what bad grammar
+
+New lines within a string are printed as normal.
+
+    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.")
+    Let's print a new-line! Here goes:
+    <BLANKLINE>
+    <BLANKLINE>
+    Printed.
+    <BLANKLINE>
+
+    >>> text_indentation("\n\n\n We just printed three new lines.")
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    We just printed three new lines.
+    <BLANKLINE>
+
+    >>> text_indentation("A sneaky \n new line.")
+    A sneaky 
+    new line.
+    <BLANKLINE>
+
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+    ... Collatio igitur ista te nihil iuvat. Honesta oratio, Socratica, Platonis etiam.\
+    ... Primum in nostrane potestate est, quid meminerimus? Duo Reges: constructio interrete.\
+    ... Quid, si etiam iucunda memoria est praeteritorum malorum? Si quidem, inquit,\
+    ... tollerem, sed relinquo. An nisi populari fama?""")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Collatio igitur ista te nihil iuvat.
+    <BLANKLINE>
+    Honesta oratio, Socratica, Platonis etiam.
+    <BLANKLINE>
+    Primum in nostrane potestate est, quid meminerimus?
+    <BLANKLINE>
+    Duo Reges: constructio interrete.
+    <BLANKLINE>
+    Quid, si etiam iucunda memoria est praeteritorum malorum?
+    <BLANKLINE>
+    Si quidem, inquit,tollerem, sed relinquo.
+    <BLANKLINE>
+    An nisi populari fama?
+
+Non string input:
+    >>> text_indentation(3)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+No special char in string input:
+    >>> text_indentation("hello")
+    hello
+
+QA case:
+    >>> text_indentation("Holberton. School? How are you: John")
+    Holberton.
+    <BLANKLINE>
+    School?
+    <BLANKLINE>
+    How are you:
+    <BLANKLINE>
+    John
+
+No input:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'

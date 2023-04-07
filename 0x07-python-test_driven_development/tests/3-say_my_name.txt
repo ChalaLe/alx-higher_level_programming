@@ -1,0 +1,52 @@
+# 3-say_my_name.txt
+
+Using ``say_my_name``
+-----------------------
+
+This modules defines a function ``say_my_name(first_name, last_name="")``.
+
+Usage
+----
+
+First import ``say_my_name``
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+ 
+   >>> say_my_name("Chala", "Lelisa")
+    My name is Chala Lelisa
+
+The parameter ```last_name``` is optional. If no last name is provided,
+an empty string is printed instead.
+
+:
+
+    >>> say_my_name("Chala")
+    My name is Chala
+
+Invalid Name
+
+The parameters ``first_name`` and ``last_name``` must be strings. Otherwise,
+a TypeError is raised.
+
+:
+
+    >>> say_my_name(6, "Tola")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+:
+
+    >>> say_my_name("Bekele", ["Tadesse", "Ayele", "Chaltu"])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+:
+
+    >>> say_my_name({"Abebe": 6, "Bikila": 23}, 7.7)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+:
+
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
