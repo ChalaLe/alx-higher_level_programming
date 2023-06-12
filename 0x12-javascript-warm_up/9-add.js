@@ -1,17 +1,15 @@
 #!/usr/bin/node
+/**
+ * add - Computes the sum of 2 numbers.
+ * @param {Number} a - The first number.
+ * @param {Number} b - The second number.
+ *
+ * @returns The sum of the 2 numbers.
+ */
 function add (a, b) {
   return a + b;
 }
 
-const arg1 = process.argv[2];
-const arg2 = process.argv[3];
-
-const num1 = parseInt(arg1);
-const num2 = parseInt(arg2);
-
-if (Number.isNaN(num1) || Number.isNaN(num2)) {
-  console.log('Invalid input. Please provide two integers.');
-} else {
-  const result = add(num1, num2);
-  console.log(`${result}`);
-}
+console.log(
+  add(Number.parseInt(process.argv[2]), Number.parseInt(process.argv[3]))
+);
