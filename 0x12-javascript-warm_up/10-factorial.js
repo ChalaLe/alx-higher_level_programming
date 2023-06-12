@@ -15,4 +15,4 @@ const arg = process.argv[2];
 const num = parseInt(arg);
 
 const result = factorial(num);
-console.log(`The factorial of ${num} is: ${result}`);
+console.log(`${result}`);

@@ -13,5 +13,5 @@ if (Number.isNaN(num1) || Number.isNaN(num2)) {
   console.log('Invalid input. Please provide two integers.');
 } else {
   const result = add(num1, num2);
-  console.log(`The addition of ${num1} and ${num2} is: ${result}`);
+  console.log(`${result}`);
 }
