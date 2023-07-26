@@ -1,24 +1,15 @@
 #!/usr/bin/node
+// Create an object to store the completed task count for each user ID.
+
 const request = require('request');
 
-const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
+const apiUrl = process.argv[2];
 
-function fetchTasks() {
-  return new Promise((resolve, reject) => {
-    request(apiUrl, (error, response, body) => {
-      if (error) {
-        reject(error);
-      } else {
-        const tasks = JSON.parse(body);
-        resolve(tasks);
-      }
-    });
-  });
-}
-
-async function computeCompletedTasksByUser() {
-  try {
-    const tasks = await fetchTasks();
+request(apiUrl, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+  } else {
+    const tasks = JSON.parse(body);
 
     // Create an object to store the completed task count for each user ID.
     const completedTasksByUser = {};
@@ -32,9 +23,5 @@ async function computeCompletedTasksByUser() {
     }
 
     console.log(completedTasksByUser);
-  } catch (error) {
-    console.error('Error:', error.message);
   }
-}
-
-computeCompletedTasksByUser();
+});
